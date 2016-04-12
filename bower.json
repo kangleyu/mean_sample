@@ -1,0 +1,26 @@
+{
+  "name": "mean",
+  "description": "Play for mean stack",
+  "main": "server.js",
+  "authors": [
+    "Tom Yu <kangleyu@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/sevolution/mean_sample",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2",
+    "angular-route": "~1.2"
+  }
+}

@@ -21,7 +21,7 @@ var UserSchema = new Schema({
     // custom validator
     validate: [
       function (password) {
-        return password.length >= 6;
+        return password.length > 6;
       },
       'Password should be longer than 6 characters.'
     ]
@@ -38,29 +38,11 @@ var UserSchema = new Schema({
   created: {
     type: Date,
     default: Date.now // Provide default value
-  },
-  website: {
-    type: String,
-    // customer modifier
-    get: function (url) {
-      if (!url) {
-        return url;
-      } else {
-        if (url.indexOf('http://') !== 0 && url.indexOf('https://') !== 0) {
-          url = 'http://' + url;
-        }
-        return url;
-      }
-    }
-  },
-  role: {
-    type: String,
-    enum: ['Admin', 'Owner', 'User']
   }
 });
 
 // virtual method to provide a calculated property
-UserSchema.virtual('fullname').get(function () {
+UserSchema.virtual('fullName').get(function () {
   return this.firstName + ' ' + this.lastName;
 })
 .set(function (fullname) {
@@ -68,9 +50,6 @@ UserSchema.virtual('fullname').get(function () {
   this.firstName = splitName[0] || '';
   this.lastName = splitName[1] || '';
 });
-
-// force mongoose to include getters when converting the mongodb document to a JSON representation
-UserSchema.set('toJSON', { getters: true, virtual: true });
 
 // define custom static methods
 UserSchema.statics.findOneByUserName = function (username, callback) {
@@ -121,5 +100,8 @@ UserSchema.post('save', function (next) {
     console.log('A user updated is details.');
   }
 });
+
+// force mongoose to include getters when converting the mongodb document to a JSON representation
+UserSchema.set('toJSON', { getters: true, virtual: true });
 
 mongoose.model('User', UserSchema);
