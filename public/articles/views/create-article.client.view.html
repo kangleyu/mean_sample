@@ -1,0 +1,23 @@
+<section ng-controller="ArticlesController">
+  <h1>New Article</h1>
+  <form ng-submit="create()" novalidate>
+    <div>
+      <label for="title">Title</label>
+      <div>
+        <input type="text" ng-model="title" id="title" placeholder="Title" required/>
+      </div>
+    </div>
+    <div>
+      <label for="content">Content</label>
+      <div>
+        <textarea name="" id="content" cols="30" rows="10" ng-model="content" placeholder="Content"></textarea>
+      </div>
+    </div>
+    <div>
+      <input type="submit" value="Create"/>
+    </div>
+    <div ng-show="error">
+      <strong ng-bind="error"></strong>
+    </div>
+  </form>
+</section>

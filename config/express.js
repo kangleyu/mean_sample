@@ -36,8 +36,8 @@ module.exports = function () {
 
   require('../app/routes/index.server.routes')(app);
   require('../app/routes/users.server.routes')(app);
+  require('../app/routes/articles.server.routes')(app);
   
-  app.use('/users/users.client.module.js', express.static(__dirname + '/public/users/users.client.module.js'));
   app.use(express.static('./public'));
   return app;
 };

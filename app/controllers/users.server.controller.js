@@ -130,3 +130,19 @@ exports.delete = function (req, res, next) {
     }
   });
 };
+
+// authenticateion middleware
+exports.requiresLogin = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+   return res.status(401).send({ message: 'User is not logged in'});
+  }
+  next();
+};
+
+// authorization middleware
+exports.hasAuthorization = function(req, res, next) {
+  if (req.article.creator.id !== req.user.id) {
+    return res.status(403).send({ message: 'User is not authorized'});
+  }
+  next();
+};
