@@ -20,5 +20,5 @@ module.exports = function (io, socket) {
       created: Date.now(),
       username: socket.request.user.username
     });
-  })
-}
+  });
+};
