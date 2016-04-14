@@ -2,7 +2,7 @@ var users = require('../../app/controllers/users.server.controller');
 var articles = require('../../app/controllers/articles.server.controller');
 
 module.exports = function (app) {
-  app.route('/api/artilces')
+  app.route('/api/articles')
   .get(articles.list)
   .post(users.requiresLogin, articles.create);
   
