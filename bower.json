@@ -23,6 +23,7 @@
     "angular": "~1.2",
     "angular-route": "~1.2",
     "angular-resource": "~1.2",
+    "angular-mocks": "~1.2",
     "socket.io": "~1.4.5"
   }
 }

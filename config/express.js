@@ -41,7 +41,7 @@ module.exports = function(db) {
   }));
 
   app.set('views', './app/views');
-  app.set('view engine', 'ejs');
+  app.set('view engine', config.viewEngine);
 
   app.use(flash());
   app.use(passport.initialize());
